@@ -1,0 +1,26 @@
+#main-menu {
+    .wrap {
+        width: 80%;
+        display: flex;
+        margin: auto;
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+
+    a {
+        width: 18%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-decoration: none;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    h3 {
+        text-align: center;
+    }
+}
