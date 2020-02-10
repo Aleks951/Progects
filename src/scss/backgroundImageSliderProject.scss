@@ -26,6 +26,8 @@
                 height: 100%;
                 border-radius: 10px;
                 transition: all 0.8s;
+                position: absolute;
+                top: 0;
             }
         }
 
@@ -49,22 +51,4 @@
             top: 45%;
         }
     }
-}
-
-.next-left {
-    position: absolute;
-    top: 0;
-    left: 100%;
-}
-
-.next-right {
-    position: absolute;
-    top: 0;
-    left: -100%;
-}
-
-.prev {
-    position: absolute;
-    top: 0;
-    left: 0%;
 }

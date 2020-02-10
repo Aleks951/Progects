@@ -1,46 +1,33 @@
-const rootImg = "/image/image-slider-javascript-project/"
-const images = ["contBcg-0.jpg", "contBcg-1.jpg", "contBcg-2.jpg", "contBcg-3.jpg", "contBcg-4.jpg"];
-
 const initialState = {
     images: ["contBcg-0.jpg", "contBcg-1.jpg", "contBcg-2.jpg", "contBcg-3.jpg", "contBcg-4.jpg"],
     rootImg: "/image/image-slider-javascript-project/",
-    next: 0,
-    prev: 0,
-    left: true
+    show: 0
 };
 
 export default (state = initialState, action) => {
     if (action.type === "CHENGE") {
         if (action.direction === "left") {
-            if (state.next === 0) {
+            if (state.show === 0) {
                 return {
                     ...state,
-                    next: state.images.length - 1,
-                    prev: state.next,
-                    left: true
+                    show: state.images.length - 1
                 };
             } else {
                 return {
                     ...state,
-                    next: state.next - 1,
-                    prev: state.next,
-                    left: true
+                    show: state.show - 1
                 };
             };
         } else {
-            if (state.next === state.images.length - 1) {
+            if (state.show === state.images.length - 1) {
                 return {
                     ...state,
-                    next: 0,
-                    prev: state.next,
-                    left: false
+                    show: 0
                 };
             } else {
                 return {
                     ...state,
-                    next: state.next + 1,
-                    prev: state.next,
-                    left: false
+                    show: state.show + 1
                 };
             };
         };
