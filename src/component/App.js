@@ -6,6 +6,7 @@ import MainMenu from "./MainMenu.js";
 
 import ChangeBackgroundColorProject from "./progects/changeBackgroundColorProject.js";
 import BackgroundImageSliderProject from "./progects/backgroundImageSliderProject.js";
+import FilterJavascriptProject from "./progects/filterJavascriptProject";
 
 class App extends React.Component {
 
@@ -17,6 +18,7 @@ class App extends React.Component {
                         <Route exact path="/" component={MainMenu} />
                         <Route path="/changeBackgroundColorProject" component={ChangeBackgroundColorProject} />
                         <Route path="/backgroundImageSliderProject" component={BackgroundImageSliderProject} />
+                        <Route path="/filterJavascriptProject" component={FilterJavascriptProject} />
                     </Switch>
                 </Router>
             </React.Fragment>

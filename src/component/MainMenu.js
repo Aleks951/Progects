@@ -15,6 +15,10 @@ function Menu (props) {
                     <img src="/image/image-slider-javascript-project.png"/>
                     <h3>Background Image Slider Project</h3>
                 </a>
+                <a href="/filterJavascriptProject">
+                    <img src="/image/filter-javascript-project.png"/>
+                    <h3>Filter Javascript Project</h3>
+                </a>
             </div>
         </div>
     );
