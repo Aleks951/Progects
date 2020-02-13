@@ -9,25 +9,20 @@ import DB from "./DB.js";
 
 import "../../../scss/filterJavascriptProject.scss";
 
-class App extends React.Component {
-    constructor(props) {
-        super(props)
-    };
+function App(props) {
 
-    componentDidMount() {
-        this.props.initialDB(DB);
-    };
+    React.useEffect(() => {
+        props.initialDB(DB);
+    }, []);
 
-    render() {
-        return (
-            <React.Fragment>
-                <Header />
-                <AboutAs />
-                <Filter />
-                {this.props.modal ? <Modal /> : null}
-            </React.Fragment>
-        );
-    };
+    return (
+        <React.Fragment>
+            <Header />
+            <AboutAs />
+            <Filter />
+            {props.modal ? <Modal /> : null}
+        </React.Fragment>
+    );
 };
 
 export default connect(
