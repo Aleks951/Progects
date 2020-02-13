@@ -17,7 +17,7 @@ function Menu (props) {
                 </a>
                 <a href="/filterJavascriptProject">
                     <img src="/image/filter-javascript-project.png"/>
-                    <h3>Filter Javascript Project</h3>
+                    <h3>Filter Javascript Project and Modal</h3>
                 </a>
             </div>
         </div>

@@ -6,10 +6,10 @@ function ShowItem(props) {
 
     return (
         <div className="show-item">
-            {state.showItem.map((item) => {
+            {state.showItem.map((item, i) => {
                 return (
                     <div key={item.id} className="item">
-                        <img src={item.img} />
+                        <img onClick={() => {props.showModal(i)}} src={item.img} />
                         <div>
                             <h5 className="name">{item.name}</h5>
                             <h5 className="cost">${item.cost}</h5>
@@ -26,6 +26,9 @@ export default connect(
         state: state.filterJavascriptProject
     }),
     (dispatch) => ({
+        showModal: (show) => {
+            dispatch({ type: "SHOWMODAL", show })
+        }
     })
 )(ShowItem);
 
