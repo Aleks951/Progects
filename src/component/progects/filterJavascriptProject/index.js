@@ -5,6 +5,7 @@ import Header from "./header.js";
 import AboutAs from "./aboutAs.js";
 import Filter from "./filter.js";
 import Modal from "./modal.js";
+import ShopingCart from "./shoppingCart.js";
 import DB from "./DB.js";
 
 import "../../../scss/filterJavascriptProject.scss";
@@ -21,13 +22,15 @@ function App(props) {
             <AboutAs />
             <Filter />
             {props.modal ? <Modal /> : null}
+            {props.cart ? <ShopingCart /> : null}
         </React.Fragment>
     );
 };
 
 export default connect(
     (state) => ({
-        modal: state.filterJavascriptProject.modal
+        modal: state.filterJavascriptProject.modal,
+        cart: state.filterJavascriptProject.cart
     }),
     (dispatch) => ({
         initialDB: (db) => {

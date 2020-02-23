@@ -11,6 +11,12 @@ header {
         display: flex;
         align-items: center;
         padding: 0 1%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: white;
+        z-index: 500;
     }
 
     .logo {
@@ -63,6 +69,7 @@ header {
         display: flex;
         justify-content: center;
         padding-top: 6%;
+        margin-top: 50px;
 
         h1 {
             font-size: 2.5rem;
@@ -193,20 +200,48 @@ strong {
             display: flex;
             flex-direction: column;
             background: white;
-            cursor: pointer;
 
             img {
                 width: 100%;
                 border-top-left-radius: calc(.25rem - 1px);
                 border-top-right-radius: calc(.25rem - 1px);
+                cursor: pointer;
             }
 
-            div {
+            .wrap {
                 display: flex;
                 align-items: center;
                 margin: 5% auto;
                 width: 80%;
                 justify-content: space-between;
+
+                .wrap-cost-and-buy {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .buy {
+                        padding: 0px;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        border: none;
+                        background: #ef7998;
+                        margin-right: 10px;
+                        color: black;
+                        transition: all 0.8s;
+
+                        &:hover {
+                            color: #ef7998;
+                            background: white;
+                            box-shadow: 0px 0px 10px;
+                        }
+                    }
+
+                    .cost {
+                        margin: 0;
+                    }
+                }
             }
         }
     }
@@ -224,6 +259,7 @@ strong {
     left: 0;
     background: #000000bd;
     flex-direction: column;
+    z-index: 501;
 
     .wrap-slider {
         width: 35%;
@@ -297,5 +333,58 @@ strong {
                 color: rgb(249, 228, 148);
             }
         }
+    }
+}
+
+#shoping-cart {
+    width: 15%;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    padding-top: 40px;
+    background: #ffffff91;
+
+    .item {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 15px;
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        p {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+
+            span {
+                font-weight: 700;
+            }
+        }
+
+        i {
+            color: #ef7998;
+            cursor: pointer;
+            transition: all 0.5s;
+
+            &:hover {
+                color: black;
+            }
+        }
+
+        input {
+            width: 20%;
+            text-align: center;
+        }
+    }
+
+    .cost {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
     }
 }

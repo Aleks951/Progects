@@ -1,6 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 
 function Header(props) {
+    let state = props.state;
+
     return (
         <header>
             <nav>
@@ -15,9 +18,9 @@ function Header(props) {
                         <i className="fa fa-phone" aria-hidden="true" />
                         + 123 456 789
                     </a>
-                    <button className="shopping-button">
+                    <button onClick={props.showCart} className="shopping-button">
                         <i className="fa fa-shopping-cart" aria-hidden="true" />
-                        2 Items - $10.49
+                        {state.amountItems} Items - ${state.sumItems}
                     </button>
                 </div>
             </nav>
@@ -32,4 +35,13 @@ function Header(props) {
     );
 };
 
-export default Header;
+export default connect(
+    (state) => ({
+        state: state.filterJavascriptProject
+    }),
+    (dispatch) => ({
+        showCart: () => {
+            dispatch({ type: "SHOWSHOPPINGCART" });
+        }
+    })
+)(Header);
