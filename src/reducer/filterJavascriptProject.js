@@ -170,14 +170,36 @@ export default (state = initialState, action) => {
     if (action.type === "CHANGESAMOUNT") {
         for (let i = 0; i < state.boughtItems.length; ++i) {
             if (state.boughtItems[i].id === action.id) {
-                let boughtItems = state.boughtItems;
-                boughtItems[i].amount = action.e;
+                let condition = state.boughtItems[i].amount > action.e;
 
-                return {
-                    ...state,
-                    boughtItems
+                if (action.e >= 0) {
+                    let chenges = {
+                        changesSumItems: condition ? -1 * state.boughtItems[i].cost : state.boughtItems[i].cost,
+                        chengesAmountItems: condition ? -1 : 1
+                    };
+                    let boughtItems = state.boughtItems;
+                    boughtItems[i].amount = action.e;
+    
+                    return {
+                        ...state,
+                        boughtItems,
+                        sumItems: state.sumItems + chenges.changesSumItems,
+                        amountItems: state.amountItems + chenges.chengesAmountItems
+                    };
+                } else {
+                    return state;
                 };
             };
+        };
+    };
+
+    // CLEARCART
+    if (action.type === "CLEARCART") {
+        return {
+            ...state,
+            boughtItems: [],
+            sumItems: 0,
+            amountItems: 0
         };
     };
 
