@@ -170,24 +170,17 @@ export default (state = initialState, action) => {
     if (action.type === "CHANGESAMOUNT") {
         for (let i = 0; i < state.boughtItems.length; ++i) {
             if (state.boughtItems[i].id === action.id) {
-                let condition = state.boughtItems[i].amount > action.e;
+                let item = state.boughtItems[i];
+                let sumItems = state.sumItems + item.cost * (action.e - item.amount);
+                let amountItems = state.amountItems + (action.e * 1) - item.amount;
+                let boughtItems = state.boughtItems;
+                boughtItems[i].amount = action.e;
 
-                if (action.e >= 0) {
-                    let chenges = {
-                        changesSumItems: condition ? -1 * state.boughtItems[i].cost : state.boughtItems[i].cost,
-                        chengesAmountItems: condition ? -1 : 1
-                    };
-                    let boughtItems = state.boughtItems;
-                    boughtItems[i].amount = action.e;
-    
-                    return {
-                        ...state,
-                        boughtItems,
-                        sumItems: state.sumItems + chenges.changesSumItems,
-                        amountItems: state.amountItems + chenges.chengesAmountItems
-                    };
-                } else {
-                    return state;
+                return {
+                    ...state,
+                    boughtItems,
+                    sumItems,
+                    amountItems
                 };
             };
         };

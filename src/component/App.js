@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import MainMenu from "./MainMenu.js";
@@ -26,7 +25,4 @@ class App extends React.Component {
     };
 };
 
-export default connect(
-    (state) => ({}),
-    (dispatch) => ({})
-)(App);
+export default App;

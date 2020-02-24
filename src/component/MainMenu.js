@@ -1,6 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-
 import "../scss/mainMenu.scss";
 
 function Menu (props) {
@@ -24,7 +22,4 @@ function Menu (props) {
     );
 };
 
-export default connect(
-    (state) => ({}),
-    (dispatch) => {{}}
-)(Menu);
+export default Menu;
