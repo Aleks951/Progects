@@ -17,13 +17,13 @@ function App(props) {
     }, []);
 
     return (
-        <React.Fragment>
+        <div id="filterJavascriptProject">
             <Header />
             <AboutAs />
             <Filter />
             {props.modal ? <Modal /> : null}
             {props.cart ? <ShopingCart /> : null}
-        </React.Fragment>
+        </div>
     );
 };
 

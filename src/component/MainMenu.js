@@ -17,6 +17,10 @@ function Menu (props) {
                     <img src="/image/filter-javascript-project.png"/>
                     <h3>Filter Javascript Project and Modal and Cart</h3>
                 </a>
+                <a href="/todoListJavascriptProject">
+                    <img src="/image/todo-list-javascript-project.png"/>
+                    <h3>Todo List Javascript Project</h3>
+                </a>
             </div>
         </div>
     );

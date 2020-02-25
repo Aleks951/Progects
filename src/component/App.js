@@ -6,6 +6,7 @@ import MainMenu from "./MainMenu.js";
 import ChangeBackgroundColorProject from "./progects/changeBackgroundColorProject.js";
 import BackgroundImageSliderProject from "./progects/backgroundImageSliderProject.js";
 import FilterJavascriptProject from "./progects/filterJavascriptProject";
+import TodoListJavascriptProject from "./progects/todoListJavascriptProject";
 
 class App extends React.Component {
 
@@ -18,6 +19,7 @@ class App extends React.Component {
                         <Route path="/changeBackgroundColorProject" component={ChangeBackgroundColorProject} />
                         <Route path="/backgroundImageSliderProject" component={BackgroundImageSliderProject} />
                         <Route path="/filterJavascriptProject" component={FilterJavascriptProject} />
+                        <Route path="/todoListJavascriptProject" component={TodoListJavascriptProject} />
                     </Switch>
                 </Router>
             </React.Fragment>

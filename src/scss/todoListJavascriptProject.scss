@@ -1,0 +1,44 @@
+#todoListJavascriptProject {
+    .form-control {
+        border-color: #28a745;
+    }
+
+    .item-container {
+        .item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        h5 {
+            margin: 0;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        .wrap-icons {
+            width: 8%;
+            display: flex;
+            justify-content: space-between;
+            transition: all 0.8s;
+
+            .fa {
+                cursor: pointer;
+            }
+
+            .fa-check-circle {
+                color: #28a745;
+            }
+
+            .fa-pencil-square-o {
+                color: #5ab5e4;
+            }
+
+            .fa-times-circle {
+                color: #d62828;
+            }
+        }
+    }
+}
