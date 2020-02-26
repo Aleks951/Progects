@@ -1,8 +1,8 @@
 const initialState = {
-    items: [],
-    groups: [],
-    showItem: [],
-    boughtItems: [],
+    items: new Array(),
+    groups: new Array(),
+    showItem: new Array(),
+    boughtItems: new Array(),
     sumItems: 0,
     amountItems: 0,
     modal: false,
@@ -29,7 +29,7 @@ export default (state = initialState, action) => {
                 showItem: state.items
             };
         } else {
-            let show = [];
+            let show = new Array();
             let group = action.changes.toLowerCase().trim();
 
             for (let i = 0; i < state.items.length; ++i) {
@@ -47,7 +47,7 @@ export default (state = initialState, action) => {
 
     // SEARCH
     if (action.type === "SEARCH") {
-        let show = [];
+        let show = new Array();
         let text = action.e.toLowerCase().trim();
 
         for (let i = 0; i < state.items.length; ++i) {
@@ -70,6 +70,14 @@ export default (state = initialState, action) => {
             ...state,
             modal: true,
             showImg: action.show
+        };
+    };
+
+    // CLOSEMODAL
+    if (action.type === "CLOSEMODAL") {
+        return {
+            ...state,
+            modal: false
         };
     };
 
@@ -99,14 +107,6 @@ export default (state = initialState, action) => {
                     showImg: state.showImg + 1
                 };
             };
-        };
-    };
-
-    // CLOSEMODAL
-    if (action.type === "CLOSEMODAL") {
-        return {
-            ...state,
-            modal: false
         };
     };
 
@@ -150,39 +150,32 @@ export default (state = initialState, action) => {
 
     // REMOVEITEM
     if (action.type === "REMOVEITEM") {
-        for (let i = 0; i < state.boughtItems.length; ++i) {
-            if (state.boughtItems[i].id === action.id) {
-                let amountItems = state.amountItems - state.boughtItems[i].amount;
-                let sumItems = state.sumItems - (state.boughtItems[i].cost * state.boughtItems[i].amount);
-                let boughtItems = state.boughtItems.length === 1 ? [] : state.boughtItems.splice(i - 1, 1);
+        let amountItems = state.amountItems - state.boughtItems[action.i].amount;
+        let sumItems = state.sumItems - (state.boughtItems[action.i].cost * state.boughtItems[action.i].amount);
+        let boughtItems = state.boughtItems.concat();
+        boughtItems.splice(action.i, 1);
 
-                return {
-                    ...state,
-                    boughtItems,
-                    amountItems,
-                    sumItems
-                };
-            };
+        return {
+            ...state,
+            boughtItems,
+            amountItems,
+            sumItems
         };
     };
 
     // CHANGESAMOUNT
     if (action.type === "CHANGESAMOUNT") {
-        for (let i = 0; i < state.boughtItems.length; ++i) {
-            if (state.boughtItems[i].id === action.id) {
-                let item = state.boughtItems[i];
-                let sumItems = state.sumItems + item.cost * (action.e - item.amount);
-                let amountItems = state.amountItems + (action.e * 1) - item.amount;
-                let boughtItems = state.boughtItems;
-                boughtItems[i].amount = action.e;
+        let item = state.boughtItems[action.i];
+        let sumItems = state.sumItems + item.cost * (action.e - item.amount);
+        let amountItems = state.amountItems + (action.e * 1) - item.amount;
+        let boughtItems = state.boughtItems;
+        boughtItems[action.i].amount = action.e;
 
-                return {
-                    ...state,
-                    boughtItems,
-                    sumItems,
-                    amountItems
-                };
-            };
+        return {
+            ...state,
+            boughtItems,
+            sumItems,
+            amountItems
         };
     };
 
@@ -190,7 +183,7 @@ export default (state = initialState, action) => {
     if (action.type === "CLEARCART") {
         return {
             ...state,
-            boughtItems: [],
+            boughtItems: new Array(),
             sumItems: 0,
             amountItems: 0
         };

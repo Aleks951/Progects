@@ -24,7 +24,7 @@ function EbitItem(props) {
     return (
         <div className="item my-3">
             <input onChange={(e) => { props.changesItem(props.i, "changesText", e.target.value) }} type="text" value={item.toDo} />
-            <button onClick={() => { props.changesItem(props.i, "save") }} className="btn btn-outline-success text-capitalize">Save</button>
+            <button onClick={() => { props.changesItem(props.i, "change") }} className="btn btn-outline-success text-capitalize">Save</button>
         </div>
     );
 };

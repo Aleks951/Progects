@@ -14,7 +14,7 @@ function ShopingCart(props) {
         return (
             <div id="shoping-cart">
                 <div className="wrap-items">
-                    {state.boughtItems.map((item) => {
+                    {state.boughtItems.map((item, i) => {
                         return (
                             <div className="item" key={item.id}>
                                 <img src={item.img} />
@@ -22,10 +22,10 @@ function ShopingCart(props) {
                                 <input
                                     type="number"
                                     value={item.amount}
-                                    onChange={(e) => { props.changesAmount(e.target.value, item.id) }}
+                                    onChange={(e) => { props.changesAmount(e.target.value, i) }}
                                 />
                                 <p><span>Sum</span>${item.cost * item.amount}</p>
-                                <i onClick={() => props.removeItem(item.id)} className="fa fa-trash"></i>
+                                <i onClick={() => props.removeItem(i)} className="fa fa-trash"></i>
                             </div>
                         );
                     })}
@@ -47,11 +47,11 @@ export default connect(
         state: state.filterJavascriptProject
     }),
     (dispatch) => ({
-        removeItem: (id) => {
-            dispatch({ type: "REMOVEITEM", id });
+        removeItem: (i) => {
+            dispatch({ type: "REMOVEITEM", i });
         },
-        changesAmount: (e, id) => {
-            dispatch({ type: "CHANGESAMOUNT", e, id });
+        changesAmount: (e, i) => {
+            dispatch({ type: "CHANGESAMOUNT", e, i });
         },
         clearCart: () => {
             dispatch({ type: "CLEARCART" });

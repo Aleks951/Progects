@@ -51,11 +51,9 @@ export default (state = initialState, action) => {
     if (action.type === "CHANGESITEM") {
         let items = state.items;
         if (action.action === "change") {
-            items[action.i].changesItem = true;
+            items[action.i].changesItem = !items[action.i].changesItem;
         } else if (action.action === "changesText") {
             items[action.i].toDo = action.text;
-        } else {
-            items[action.i].changesItem = false;
         };
         return {
             ...state,
